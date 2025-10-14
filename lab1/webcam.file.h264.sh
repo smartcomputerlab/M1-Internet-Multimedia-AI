@@ -1,1 +1,0 @@
-gst-launch-1.0 v4l2src device=/dev/video0 num-buffers=300 ! videoconvert ! 'video/x-raw,format=(string)NV12,width=640,height=480,framerate=(fraction)30/1' ! queue ! x264enc ! mp4mux ! filesink sync=false location=../samples/camera-h264-640x480.mp4
