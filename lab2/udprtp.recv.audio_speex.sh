@@ -1,1 +1,0 @@
-gst-launch-1.0 -v udpsrc caps="application/x-rtp,media=(string)audio,clock-rate=(int)16000, encoding-name=(string)SPEEX, encoding-params=(string)1, payload=(int)110"  port=8060 ! queue ! rtpspeexdepay ! decodebin ! audioconvert ! alsasink 

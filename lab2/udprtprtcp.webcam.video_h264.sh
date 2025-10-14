@@ -1,1 +1,0 @@
-gst-launch-1.0 v4l2src device=/dev/video1 ! video/x-h264, width=1920, height=1080, framerate=30/1 ! rtph264pay !  .send_rtp_sink rtpsession name=session .send_rtp_src ! udpsink host=192.168.1.27 port=8050 session.send_rtcp_src ! udpsink host=192.168.1.27 port=8051 

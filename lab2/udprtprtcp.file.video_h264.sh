@@ -1,1 +1,0 @@
-gst-launch-1.0 -v filesrc location=../samples/$1.mp4 ! qtdemux name=mux mux.video_0 ! h264parse ! rtph264pay !  .send_rtp_sink rtpsession name=session .send_rtp_src ! udpsink host=192.168.1.27 port=8050 session.send_rtcp_src ! udpsink host=192.168.1.27 port=8051 
