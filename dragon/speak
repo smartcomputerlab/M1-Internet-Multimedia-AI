@@ -1,0 +1,16 @@
+#!/bin/bash
+# Read the text from the file that whisper-talk-llama writes to
+SPEAK_FILE="/home/rock/whisper.cpp/examples/talk-llama/to_speak.txt"
+# Wait a moment for the file to be written
+sleep 0.5
+
+if [ -f "$SPEAK_FILE" ]; then
+    TEXT=$(cat "$SPEAK_FILE")
+    if [ -n "$TEXT" ]; then
+        echo "Speaking: $TEXT"
+        echo "$TEXT" | piper --model models/female.onnx --output-raw | \
+	aplay -q -r 16000 -f S16_LE -t raw -
+    fi
+else
+    echo "No text file found at $SPEAK_FILE"
+fi
